@@ -20,7 +20,7 @@ public class Request {
     public Request(InputStream input) {
         InputStreamReader inputStreamReader = new InputStreamReader(input);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-        
+
         try {
             parseRequest(bufferedReader);
         } catch (IOException e) {
