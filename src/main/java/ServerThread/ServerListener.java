@@ -28,7 +28,7 @@ public class ServerListener extends Thread {
             while(serverSocket.isBound() && !serverSocket.isClosed()) {
                 Socket socket = serverSocket.accept();
                 LOGGER.info("Connection accepted: " + socket.getInetAddress());
-                ConnectionThread connectionThread = new ConnectionThread(socket);
+                ConnectionThread connectionThread = new ConnectionThread(socket,path);
                 connectionThread.run();
             }
         } catch (IOException e) {

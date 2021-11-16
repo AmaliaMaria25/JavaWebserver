@@ -20,7 +20,7 @@ public class WebserverRunner {
         LOGGER.info("The path is: "+ config.getPath());
         ServerListener serverListener = null;
         try {
-            serverListener = new ServerListener(config.getPort(), config.getPath());
+            serverListener = new ServerListener(config.getPort(), System.getProperty("user.dir")+config.getPath());
             serverListener.start();
         } catch (IOException e) {
             e.printStackTrace();

@@ -2,11 +2,6 @@ package HTTP;
 
 import com.sun.org.slf4j.internal.Logger;
 import com.sun.org.slf4j.internal.LoggerFactory;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class Request {
@@ -17,28 +12,7 @@ public class Request {
     private String version;
     private ArrayList<String> headers;
 
-    public Request(InputStream input) {
-        InputStreamReader inputStreamReader = new InputStreamReader(input);
-        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-
-        try {
-            parseRequest(bufferedReader);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-
-    public void parseRequest(BufferedReader input) throws IOException {
-        StringBuilder stringBuilder = new StringBuilder();
-        String line;
-        while (!(line = input.readLine()).isEmpty()) {
-            stringBuilder.append(line + "\r\n");
-        }
-        String requestString = stringBuilder.toString();
-        LOGGER.debug("/*/*" + requestString);
-    }
-
+    public Request() { }
 
     public String getURI() { return URI; }
 

@@ -3,7 +3,7 @@ package HTTP;
 
 public enum HttpMethod {
 
-    GET, HEAD;
+    GET, HEAD, UNkNOWN;
     public static final int MAX_LENGTH;
     static{
         int maxLength = -1;
