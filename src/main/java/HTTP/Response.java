@@ -31,6 +31,7 @@ public class Response {
         try {
             String contentType = URI.substring(URI.indexOf(".") + 1);
             list.add(HttpContentType.valueOf(contentType.toUpperCase()).toString());
+            this.headers = list;
         } catch (Exception e) {
             LOGGER.error("Content Type was not found: "+ e);
         }
