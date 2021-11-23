@@ -1,4 +1,4 @@
 {
   "port": 1008,
-  "path" : "/testFiles"
+  "path" : "\\testFiles"
 }

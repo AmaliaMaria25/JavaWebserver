@@ -19,8 +19,8 @@ class ResponseTest {
 
     @Test
     public void validTestToString() {
-        response.setHeaders(StatusCode.STATUS_200_OK);
-        assertEquals(response.toString(),"HTTP/1.1 STATUS_200_OK\r\nConnection: keep-alive\r\n\r\n");
+        response.setResponseLine(StatusCode.STATUS_200_OK.STATUS_CODE+" "+StatusCode.STATUS_200_OK.MESSAGE);
+        assertEquals(response.getResponseLine(),"HTTP/1.1 200 OK\r\n");
     }
 
     @Test
@@ -31,12 +31,8 @@ class ResponseTest {
 
     @Test
     void setContentType() {
-
-        ArrayList<String> headers = new ArrayList<String>();
-        headers.add("HTTP/1.1 CLIENT_ERROR_404_FILE_NOT_FOUND");
-        headers.add("Connection: keep-alive");
-        response.setContentType("file.html", headers);
-        assertEquals(response.getHeaders(), headers);
+        response.setContentType("file.html");
+        assertEquals(response.getContentType(), "Content-Type: text/html; charset=UTF-8\r\n\r\n");
     }
 
     @Test

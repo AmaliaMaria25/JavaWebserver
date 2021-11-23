@@ -22,15 +22,11 @@ class ResponseHandlerTest {
     void handleResponse() {
         Request request = new Request();
         request.setMethod(HttpMethod.GET);
-        request.setURI("/testFiles");
+        request.setURI("/testFiles/file.html");
         request.setVersion("HTTP/1.1");
         try {
             Response response = responseHandler.handleResponse(request);
             assertNotNull(response);
-            ArrayList<String> headers = new ArrayList<String>();
-            headers.add("HTTP/1.1 CLIENT_ERROR_404_FILE_NOT_FOUND");
-            headers.add("Connection: keep-alive");
-            assertEquals(response.getHeaders(),headers);
         } catch (IOException e) {
             fail();
         }

@@ -7,7 +7,7 @@ class HttpContentTypeTest {
 
     @Test
     void validTestToString() {
-        assertEquals(HttpContentType.HTML.toString(), "Content-Type: text/html");
+        assertEquals(HttpContentType.HTML.toString(), "Content-Type: text/html; charset=UTF-8");
     }
 
     @Test

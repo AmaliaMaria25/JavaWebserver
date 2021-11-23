@@ -29,16 +29,20 @@ public class ServerListener extends Thread {
                 Socket socket = serverSocket.accept();
                 LOGGER.info("Connection accepted: " + socket.getInetAddress());
                 ConnectionThread connectionThread = new ConnectionThread(socket,path);
+                connectionThread.setDaemon(true);
                 connectionThread.run();
             }
         } catch (IOException e) {
-            e.printStackTrace();
             LOGGER.error("Setting socket error", e);
+            System.exit(1);
         }finally {
             if(serverSocket != null){
                 try {
                     serverSocket.close();
-                } catch (IOException e) {}
+                } catch (IOException e) {
+                    LOGGER.error("Could not close port: 10008.");
+                    System.exit(1);
+                }
             }
         }
     }

@@ -24,16 +24,16 @@ public enum HttpContentType {
             case GIF:
                 return "Content-Type: image/gif";
             case HTML:
-                return "Content-Type: text/html";
+                return "Content-Type: text/html; charset=UTF-8";
             case JPG:
             case JPEG:
                 return "Content-Type: image/jpeg";
             case PNG:
                 return "Content-Type: image/png";
             case TXT:
-                return "Content-type: text/plain";
+                return "Content-type: text/plain; charset=UTF-8";
             case XML:
-                return "Content-type: text/xml";
+                return "Content-type: text/xml; charset=UTF-8";
             default:
                 return null;
         }

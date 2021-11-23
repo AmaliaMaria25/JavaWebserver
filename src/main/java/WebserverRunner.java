@@ -23,7 +23,8 @@ public class WebserverRunner {
             serverListener = new ServerListener(config.getPort(), System.getProperty("user.dir")+config.getPath());
             serverListener.start();
         } catch (IOException e) {
-            e.printStackTrace();
+            LOGGER.error("Could not listen on port: 1008.");
+            System.exit(1);
         }
 
     }
