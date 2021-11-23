@@ -45,12 +45,24 @@ class RequestParserTest {
     }
 
     @Test
-    public void invalidParseMethod_UNKNOWN(){
+    public void validParseMethod_HEADwithSpaceCharacter(){
         try {
             input = new ByteArrayInputStream("Head / HTTP/1.1\n\n".getBytes());
             Request request = requestParser.parseRequest(input);
             assertNotNull(request.getMethod());
-            assertEquals(request.getMethod(),HttpMethod.UNkNOWN);
+            assertEquals(request.getMethod(),HttpMethod.HEAD);
+        } catch (IOException e) {
+            fail();
+        }
+    }
+
+    @Test
+    public void invalidParseMethod_UNKNOWN(){
+        try {
+            input = new ByteArrayInputStream("Hea d / HTTP/1.1\n\n".getBytes());
+            Request request = requestParser.parseRequest(input);
+            assertNotNull(request.getMethod());
+            assertEquals(request.getMethod(),HttpMethod.UNKNOWN);
         } catch (IOException e) {
             fail();
         }

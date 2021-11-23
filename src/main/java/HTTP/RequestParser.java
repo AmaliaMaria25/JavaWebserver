@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class RequestParser {
@@ -23,7 +24,13 @@ public class RequestParser {
 
         String line = bufferedReader.readLine();
         StringTokenizer tokenizer = new StringTokenizer(line);
-        request.setMethod(HttpMethod.valueOf(tokenizer.nextToken().toUpperCase()));
+        String method=tokenizer.nextToken().toUpperCase();
+        if( Arrays.stream(HttpMethod.values()).anyMatch(e -> e.name().equals(method))){
+            request.setMethod(HttpMethod.valueOf(method));
+        }else{
+            request.setMethod(HttpMethod.UNKNOWN);
+        }
+
         request.setURI(tokenizer.nextToken().toLowerCase().replaceAll("%20"," "));
         request.setVersion(tokenizer.nextToken());
 

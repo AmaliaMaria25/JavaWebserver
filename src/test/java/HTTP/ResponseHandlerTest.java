@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.nio.file.NoSuchFileException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -26,8 +26,10 @@ class ResponseHandlerTest {
         request.setVersion("HTTP/1.1");
         try {
             Response response = responseHandler.handleResponse(request);
-            assertNotNull(response);
-        } catch (IOException e) {
+            fail();
+        } catch (NoSuchFileException e) {
+            assertEquals(e.getMessage(),"\\testFiles\\fileNotFound.html");
+        }catch (IOException e){
             fail();
         }
     }

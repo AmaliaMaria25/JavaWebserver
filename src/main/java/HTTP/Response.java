@@ -1,6 +1,5 @@
 package HTTP;
 
-
 import com.sun.org.slf4j.internal.Logger;
 import com.sun.org.slf4j.internal.LoggerFactory;
 import java.util.ArrayList;
@@ -16,27 +15,13 @@ public class Response {
 
     public Response(){}
 
-   /* @Override
-    public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
-        for (String header : headers) {
-            stringBuilder.append(header);
-        }
-        if(bodyContent != null){
-            stringBuilder.append(bodyContent+"\r\n");
-        }
-        return stringBuilder.toString();
-    }*/
-
-
-
     public static String getHttpVersion() { return HTTP_VERSION; }
 
     public ArrayList<String> getHeaders() { return headers; }
+
     public void setHeaders(StatusCode statusCode){
         headers.add("Connection: keep-alive\r\n");
     }
-
 
     public byte[] getBodyContent() { return bodyContent; }
 

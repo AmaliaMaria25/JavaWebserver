@@ -46,7 +46,7 @@ public class ResponseHandler {
                 }
                 break;
             }
-            case UNkNOWN: {
+            case UNKNOWN: {
                 response.setResponseLine(StatusCode.CLIENT_ERROR_400_BAD_REQUEST.STATUS_CODE+" "+StatusCode.CLIENT_ERROR_400_BAD_REQUEST.MESSAGE);
                 response.setContentType(path+FILE_NOT_FOUND_PATH);
                 response.setBodyContent(Files.readAllBytes(Paths.get(path+FILE_NOT_FOUND_PATH)));
