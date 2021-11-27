@@ -1,7 +1,7 @@
 package HTTP;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+/*import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;*/
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,7 +13,7 @@ import java.util.StringTokenizer;
 
 public class RequestParser {
 
-    private final static Logger LOGGER = LoggerFactory.getLogger(RequestParser.class);
+    //private final static Logger LOGGER = LoggerFactory.getLogger(RequestParser.class);
 
     public RequestParser() {}
 

@@ -1,11 +1,11 @@
 package HTTP;
 
-import com.sun.org.slf4j.internal.Logger;
-import com.sun.org.slf4j.internal.LoggerFactory;
+/*import com.sun.org.slf4j.internal.Logger;
+import com.sun.org.slf4j.internal.LoggerFactory;*/
 import java.util.ArrayList;
 
 public class Response {
-    private static Logger LOGGER = LoggerFactory.getLogger(Response.class);
+    //private static Logger LOGGER = LoggerFactory.getLogger(Response.class);
     private static final String HTTP_VERSION = "HTTP/1.1";
     private String responseLine;
     private ArrayList<String> headers = new ArrayList<String>();
@@ -37,7 +37,7 @@ public class Response {
             this.contentType  = HttpContentType.valueOf(contentType.toUpperCase()).toString()+"\r\n\r\n";
             this.headers.add(this.contentType);
         } catch (Exception e) {
-            LOGGER.error("Content Type was not found: "+ e);
+            //LOGGER.error("Content Type was not found: "+ e);
         }
     }
 

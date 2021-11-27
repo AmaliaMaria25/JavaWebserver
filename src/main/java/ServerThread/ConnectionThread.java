@@ -4,20 +4,19 @@ import HTTP.Request;
 import HTTP.RequestParser;
 import HTTP.Response;
 import HTTP.ResponseHandler;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+/*import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;*/
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
-import java.util.ArrayList;
 
 public class ConnectionThread extends Thread {
 
     private Socket socket;
     private String path;
-    private final static Logger LOGGER = LoggerFactory.getLogger(ConnectionThread.class);
+    //private final static Logger LOGGER = LoggerFactory.getLogger(ConnectionThread.class);
 
     public ConnectionThread(Socket socket, String path){
         this.socket = socket;
@@ -49,11 +48,11 @@ public class ConnectionThread extends Thread {
 
             output.write(outputResponse, 0, outputResponse.length);
 
-            LOGGER.info("Connection finished");
+            //LOGGER.info("Connection finished");
             input.close();
             output.close();
         } catch (IOException e) {
-            LOGGER.error("Communication error ", e);
+            //LOGGER.error("Communication error ", e);
             System.exit(1);
 
         }finally{
@@ -61,7 +60,7 @@ public class ConnectionThread extends Thread {
                 try {
                     input.close();
                 } catch (IOException e) {
-                    LOGGER.error("Could not close input");
+                    //LOGGER.error("Could not close input");
                     System.exit(1);
                 }
             }
@@ -71,7 +70,7 @@ public class ConnectionThread extends Thread {
                     output.flush();
                     output.close();
                 } catch (IOException e) {
-                    LOGGER.error("Problem with Communication Server");
+                    //LOGGER.error("Problem with Communication Server");
                     System.exit(1);
                 }
             }
@@ -80,7 +79,7 @@ public class ConnectionThread extends Thread {
                 try {
                     socket.close();
                 } catch (IOException e) {
-                    LOGGER.error("Problem with Communication Server");
+                    //LOGGER.error("Problem with Communication Server");
                     System.exit(1);
                 }
             }
