@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+
+    <children>
+        <ImageView fitHeight="400.0" fitWidth="633.0" opacity="0.85" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@App.jpg" />
+            </image>
+        </ImageView>
+
+        <Text layoutX="168.0" layoutY="56.0" style="-fx-background-color: transparent;" text="Server is running.." textAlignment="CENTER" wrappingWidth="278.84521484375">
+            <font>
+                <Font name="Papyrus" size="40.0" />
+            </font>
+
+        </Text>
+
+
+        <Button fx:id="stopServer" graphicTextGap="170.0" layoutX="255.0" layoutY="200.0" lineSpacing="15.0" mnemonicParsing="false" onAction="#stopServer" prefHeight="31.0" prefWidth="113.0" style="-fx-background-color: FC6;" text="Stop server" textAlignment="CENTER">
+            <font>
+                <Font name="System Bold" size="15.0" />
+            </font>
+        </Button>
+    </children>
+</AnchorPane>
